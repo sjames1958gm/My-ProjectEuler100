@@ -1,0 +1,12 @@
+function fiboEvenSum(n) {
+  let sum = 2;
+  let last = 1;
+  let curr = 2;
+  for (let i = 3; i <= n; i++) {
+    let next = last + curr;
+    if (!(next % 2)) sum += next;
+    last = curr;
+    curr = next;
+  }
+  return sum;
+}
