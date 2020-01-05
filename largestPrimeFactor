@@ -1,0 +1,36 @@
+function isPrime(n) {
+  const sqrt = Math.floor(Math.sqrt(n));
+  for (let i = 2; i <= sqrt; i++) {
+    if ((n % i) == 0) return false;
+  }
+  return true;
+}
+
+function smallestPrimeFactor(n) {
+  const sqrt = Math.floor(Math.sqrt(n));
+  for (let i = 2; i < n; i++) {
+    if ((n % i === 0) && isPrime(i)) {
+      return i;
+    }
+  }
+  return n;
+}
+
+// Compute primeFactors by removing the lowest
+// prime factor over and over
+function primeFactors(n) {
+  if (n === 1) return [];
+  else {
+    let spf = smallestPrimeFactor(n);
+    return [spf].concat(primeFactors(n / spf));
+  }
+}
+
+function largestPrimeFactor(number) {
+  // Get prime factors of number
+  let pFs = primeFactors(number);
+  // Return largest
+  console.log(pFs);
+  return pFs[pFs.length - 1];
+}
+
