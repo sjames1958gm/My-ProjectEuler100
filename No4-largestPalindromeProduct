@@ -1,0 +1,21 @@
+function isPalindrome(n) {
+  const str = n.toString();
+  const rstr = str.split("").reverse().join("");
+  return str == rstr;
+}
+function largestPalindromeProduct(n) {
+  // so n > 4 - this times out
+  // assume both numbers will be in the top 10% 9x, 9xx, etc
+  let max = Math.pow(10, n) - 1;
+  let lim = max - Math.pow(10, n - 1);
+  for (let i = max; i > 0; i--) {
+    for (let j = max; j > lim; j--) {
+      let t = i * j;
+      if (isPalindrome(t)) {
+        return t;
+      }
+    }
+  }
+
+  return -1;
+}
