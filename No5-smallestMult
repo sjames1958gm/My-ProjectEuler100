@@ -1,0 +1,11 @@
+function smallestMult(n) {
+  let factors = [];
+  let product = 1;
+  for (let i = 2; i <= n; i++) {
+    let factor = factors.reduce((p, c) => 
+      p % c == 0 ? p / c : p, i);
+    factors.push(factor);
+    product *= factor;
+  }
+  return product;
+}
