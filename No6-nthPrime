@@ -1,0 +1,21 @@
+function nthPrime(n) {
+  let primes = [2];
+  let curr = 3;
+  while (true) {
+    if (primes.length < n) {
+      let sq = Math.floor(Math.sqrt(curr));
+      let isPrime = true;
+      for (let i = 0; i < primes.length && isPrime && primes[i] <= sq; i++) {
+        if (curr % primes[i] == 0) {
+          isPrime = false;
+        }
+      }
+      if (isPrime) {
+        primes.push(curr);
+      }
+      curr += 2;
+    } else {
+      return primes[primes.length - 1]
+    }
+  }
+}
