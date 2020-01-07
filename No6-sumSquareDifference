@@ -1,0 +1,6 @@
+function sumSquareDifference(n) {
+  const sum = n * (n + 1) / 2
+  const squareOfSums = Math.pow(sum, 2);
+  const sumOfSquares = n * (n + 1) * (2 * n + 1) / 6
+  return squareOfSums - sumOfSquares;
+}
