@@ -1,0 +1,22 @@
+function isTriple(a, b, c) {
+    return a * a + b * b - c * c === 0;
+}
+
+function specialPythagoreanTriplet(n) {
+ let c = n - 3;
+ while (c > 3) {
+     let pool = n - c;
+
+     let b = pool < c ? pool - 1 : c - 1;
+     let a = pool < c ? 1 : pool - b;
+
+     for (; b > a && c > b; a++, b--) {
+         if (isTriple(a, b, c)) {
+             return a * b * c;
+         }
+     }
+    c--;
+ }
+
+ return 0;
+}
